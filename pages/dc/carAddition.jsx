@@ -7,10 +7,21 @@ const CarAdditionForm = () => {
   const [taxiPriceAc, setTaxiPriceAc] = useState("");
   const [taxiPriceNonAc, setTaxiPriceNonAc] = useState("");
   const [carNumber, setCarNumber] = useState("");
-  const [carPhotoLink, setCarPhotoLink] = useState("");
+  const [carImage, setCarImage] = useState(null);
   const [loading, setLoading] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.type.startsWith('image/')) {
+        setCarImage(file);
+      } else {
+        setErrorMsg("Please select an image file");
+      }
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,32 +30,49 @@ const CarAdditionForm = () => {
     setErrorMsg("");
 
     // Basic validation
-    if (
-      !carName ||
-      !taxiPriceAc ||
-      !taxiPriceNonAc ||
-      !carNumber ||
-      !carPhotoLink
-    ) {
-      setErrorMsg("Please fill in all fields.");
+    if (!carName || !taxiPriceAc || !taxiPriceNonAc || !carNumber || !carImage) {
+      setErrorMsg("Please fill in all fields and upload an image.");
       setLoading(false);
       return;
     }
 
     try {
+      // Create FormData to send the image
+      const formData = new FormData();
+      formData.append('image', carImage);
+
+      // Upload image to our API endpoint
+      const uploadResponse = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!uploadResponse.ok) {
+        throw new Error('Failed to upload image');
+      }
+
+      const { imagePath } = await uploadResponse.json();
+
+      // Save car data to Firestore with the local image path
       await addDoc(collection(db, "cars"), {
         carName,
         taxiPriceAc: Number(taxiPriceAc),
         taxiPriceNonAc: Number(taxiPriceNonAc),
         carNumber,
-        carPhotoLink,
+        carPhotoLink: imagePath, // This will be like '/images/cars/filename.jpg'
       });
+
       setSuccessMsg("Car added successfully!");
       setCarName("");
       setTaxiPriceAc("");
       setTaxiPriceNonAc("");
       setCarNumber("");
-      setCarPhotoLink("");
+      setCarImage(null);
+      
+      // Reset file input
+      const fileInput = document.querySelector('input[type="file"]');
+      if (fileInput) fileInput.value = '';
+      
     } catch (error) {
       setErrorMsg("Error adding car: " + error.message);
     }
@@ -123,16 +151,20 @@ const CarAdditionForm = () => {
 
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Car Photo URL
+                Car Photo
               </label>
               <input
-                type="url"
-                value={carPhotoLink}
-                onChange={(e) => setCarPhotoLink(e.target.value)}
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
                 required
-                placeholder="https://example.com/car-image.jpg"
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-colors duration-200 text-gray-700"
               />
+              {carImage && (
+                <p className="mt-2 text-sm text-gray-600">
+                  Selected file: {carImage.name}
+                </p>
+              )}
             </div>
 
             <button

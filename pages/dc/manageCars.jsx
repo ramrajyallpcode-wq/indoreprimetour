@@ -8,6 +8,7 @@ const ManageCars = () => {
   const [error, setError] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState({});
+  const [newImage, setNewImage] = useState(null);
 
   useEffect(() => {
     const fetchCars = async () => {
@@ -45,40 +46,72 @@ const ManageCars = () => {
   const handleEdit = (car) => {
     setEditingId(car.id);
     setEditForm(car);
+    setNewImage(null); // Reset any previously selected image
   };
 
   const handleEditChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setEditForm({
-      ...editForm,
-      [name]: type === 'checkbox' ? checked : 
-              (name === 'taxiPriceAc' || name === 'taxiPriceNonAc') ? Number(value) : value
-    });
+    if (type === 'file') {
+      const file = e.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        setNewImage(file);
+      } else if (file) {
+        alert('Please select an image file');
+      }
+    } else {
+      setEditForm({
+        ...editForm,
+        [name]: type === 'checkbox' ? checked : 
+                (name === 'taxiPriceAc' || name === 'taxiPriceNonAc') ? Number(value) : value
+      });
+    }
   };
 
   const handleUpdate = async (id) => {
     try {
       if (!editForm.carName || !editForm.carNumber || !editForm.taxiPriceAc || 
-          !editForm.taxiPriceNonAc || !editForm.carPhotoLink) {
+          !editForm.taxiPriceNonAc) {
         alert("Please fill in all fields");
         return;
       }
 
+      let updatedImagePath = editForm.carPhotoLink; // Keep existing image path by default
+
+      // If there's a new image, upload it first
+      if (newImage) {
+        const formData = new FormData();
+        formData.append('image', newImage);
+
+        const uploadResponse = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!uploadResponse.ok) {
+          throw new Error('Failed to upload new image');
+        }
+
+        const { imagePath } = await uploadResponse.json();
+        updatedImagePath = imagePath;
+      }
+
       const carRef = doc(db, "cars", id);
-      const updateData = { 
-        ...editForm
+      const updateData = {
+        ...editForm,
+        carPhotoLink: updatedImagePath,
       };
       delete updateData.id;
       
       await updateDoc(carRef, updateData);
       
       setCars(cars.map(car => 
-        car.id === id ? { ...car, ...editForm } : car
+        car.id === id ? { ...car, ...updateData } : car
       ));
       setEditingId(null);
+      setNewImage(null);
     } catch (err) {
       console.error("Error updating car:", err);
-      alert("Failed to update car");
+      alert("Failed to update car: " + err.message);
     }
   };
 
@@ -133,14 +166,38 @@ const ManageCars = () => {
                     placeholder="Non-AC Price"
                     required
                   />
-                  <input
-                    type="text"
-                    name="carPhotoLink"
-                    value={editForm.carPhotoLink || ''}
-                    onChange={handleEditChange}
-                    placeholder="Car Photo Link"
-                    required
-                  />
+                  
+                  {/* Current image preview */}
+                  <div style={{ marginTop: 10, marginBottom: 10 }}>
+                    <p>Current Image:</p>
+                    <img 
+                      src={editForm.carPhotoLink} 
+                      alt={editForm.carName}
+                      style={{
+                        maxWidth: '200px',
+                        objectFit: 'cover',
+                        borderRadius: '4px'
+                      }}
+                    />
+                  </div>
+
+                  {/* New image upload */}
+                  <div>
+                    <p>Upload New Image (optional):</p>
+                    <input
+                      type="file"
+                      name="carPhoto"
+                      accept="image/*"
+                      onChange={handleEditChange}
+                      style={{ marginBottom: 10 }}
+                    />
+                    {newImage && (
+                      <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        New image selected: {newImage.name}
+                      </p>
+                    )}
+                  </div>
+
                   <button 
                     onClick={() => handleUpdate(car.id)}
                     style={{
@@ -155,7 +212,10 @@ const ManageCars = () => {
                     Save
                   </button>
                   <button 
-                    onClick={() => setEditingId(null)}
+                    onClick={() => {
+                      setEditingId(null);
+                      setNewImage(null);
+                    }}
                     style={{
                       backgroundColor: '#777',
                       color: 'white',
