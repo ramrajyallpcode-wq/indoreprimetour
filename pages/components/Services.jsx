@@ -147,10 +147,15 @@ const Services = () => {
                       {service.description}
                     </p>
                     <div className="flex items-center justify-between mt-auto">
-                      <button className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-amber-300/50 transform hover:scale-105">
+                      <a
+                        href="https://wa.me/918236016165?text=Hi! I'm interested in booking a cab service. Could you please provide more details?"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-amber-300/50 transform hover:scale-105 inline-block text-center"
+                      >
                         Book Now
-                      </button>
-                      <div className="flex items-center text-amber-600">
+                      </a>
+                      {/* <div className="flex items-center text-amber-600">
                         <span className="text-sm font-semibold">
                           Learn More
                         </span>
@@ -165,7 +170,7 @@ const Services = () => {
                             clipRule="evenodd"
                           />
                         </svg>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

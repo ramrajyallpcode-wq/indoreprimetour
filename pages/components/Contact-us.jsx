@@ -10,6 +10,7 @@ const Contactus = () => {
     name: "",
     email: "",
     phone: "",
+    city: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -241,10 +242,10 @@ const Contactus = () => {
                     </h4>
                     <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
                       <a
-                        href="mailto:info@indorecabrental.com"
+                        href="mailto:indoreprimetour@gmail.com"
                         aria-label="Email our customer service"
                       >
-                        info@indorecabrental.com
+                        indoreprimetour@gmail.com
                       </a>
                     </p>
                   </div>
@@ -302,13 +303,25 @@ const Contactus = () => {
                     />
                   </div>
                   <div className="mb-6">
+                    <input
+                      type="text"
+                      name="city"
+                      value={formData.city}
+                      onChange={handleChange}
+                      placeholder="Your City"
+                      className="border-[f0f0f0] w-full rounded border py-3 px-[14px] text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none"
+                      required
+                      aria-label="Your city"
+                    />
+                  </div>
+                  <div className="mb-6">
                     <textarea
                       rows="6"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Your Message"
-                      className="border-[f0f0f0] w-full resize-none rounded border py-3 px-[14px] text-base text-body-color outline-none focus:border-primary focus-visible:shadow-none"
+                      className="border-[f0f0f0] w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus:border-primary focus-visible:shadow-none"
                       required
                       aria-label="Your message"
                     ></textarea>

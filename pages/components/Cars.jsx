@@ -151,7 +151,7 @@ const Cars = () => {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Premium Car Rental Fleet in india | Best Car Rental india</title>
         <meta
           name="description"
@@ -175,7 +175,7 @@ const Cars = () => {
           rel="canonical"
           href="https://www.bestcarrentalindia.com/components/Cars"
         />
-      </Head>
+      </Head> */}
       <main>
         <section className="bg-yellow-50">
           <div className="w-full lg:max-w-[1300px] mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
@@ -268,7 +268,7 @@ const Cars = () => {
                           <nav className="flex justify-between items-center mt-auto">
                             <div className="flex gap-2">
                               <Link
-                                href="tel:+918208563913"
+                                href="tel:+918236016165"
                                 className="bg-blue-600 text-white p-2 sm:p-3 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-300/30 transform hover:-translate-y-1"
                                 title={`Call to rent ${car.name}`}
                                 aria-label={`Call to book ${car.name}`}
@@ -283,7 +283,7 @@ const Cars = () => {
                                 />
                               </Link>
                               <Link
-                                href="https://wa.me/918149563913"
+                                href="https://wa.me/918236016165?text=Hi! I'm interested in booking a cab service. Could you please provide more details?"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-green-600 text-white p-2 sm:p-3 rounded-full hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-green-300/30 transform hover:-translate-y-1"

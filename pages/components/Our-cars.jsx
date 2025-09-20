@@ -110,7 +110,7 @@ const Ourcars = () => {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Our Premium Fleet | Luxury Car Rentals in india</title>
         <meta
           name="description"
@@ -134,7 +134,7 @@ const Ourcars = () => {
           rel="canonical"
           href="https://bestcarrentalindia.com/components/Our-cars"
         />
-      </Head>
+      </Head> */}
 
       <header>
         <Navbar />
@@ -234,7 +234,7 @@ const Ourcars = () => {
                     <div className="flex justify-between items-center">
                       <div className="flex gap-2">
                         <Link
-                          href="tel:+918149563913"
+                          href="tel:+918236016165"
                           className="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-300/30 transform hover:-translate-y-1"
                           title={`Call to book ${car.name}`}
                           aria-label={`Call to book ${car.name}`}
@@ -242,7 +242,7 @@ const Ourcars = () => {
                           <BsTelephoneFill size={18} />
                         </Link>
                         <Link
-                          href="https://wa.me/918149563913"
+                          href="https://wa.me/918236016165?text=Hi! I'm interested in booking a cab service. Could you please provide more details?"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-green-300/30 transform hover:-translate-y-1"
