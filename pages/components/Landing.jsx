@@ -80,7 +80,7 @@ const Landing = () => {
                 className="bg-yellow-500 text-black px-6 sm:px-8 md:px-5 py-3 sm:py-3 rounded-full font-bold hover:bg-yellow-400 transition duration-300 text-base sm:text-lg md:text-base shadow-lg uppercase"
                 aria-label="Book your taxi service now"
               >
-                book now
+                Book now
               </Link>
             </nav>
           </div>
