@@ -9,7 +9,7 @@ const Footer = () => {
       {/* Fixed Social Media Icons */}
       <div className="fixed left-4 top-1/2 transform -translate-y-1/2 z-50 flex flex-col gap-3">
         <Link
-          href="https://wa.me/918236016165?text=Hi! I'm interested in your cab services. Could you please provide more details?"
+          href="https://wa.me/0000000000?text=Hi! I'm interested in your cab services. Could you please provide more details?"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-500 text-white p-3 rounded-full hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-green-300/30 transform hover:scale-110"
@@ -19,7 +19,7 @@ const Footer = () => {
           <BsWhatsapp size={20} />
         </Link>
         <Link
-          href="https://www.instagram.com/indoreprimetour"
+          href="https://www.instagram.com/0000000000"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-purple-300/30 transform hover:scale-110"
@@ -120,11 +120,11 @@ const Footer = () => {
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                   </svg>
                   <Link
-                    href="mailto:indoreprimetour@gmail.com"
+                    href="mailto:0000000000@gmail.com"
                     className="hover:text-yellow-800 transition-colors"
                     aria-label="Email us"
                   >
-                    indoreprimetour@gmail.com
+                    0000000000@gmail.com
                   </Link>
                 </li>
                 <li className="flex items-center gap-2">
@@ -137,11 +137,11 @@ const Footer = () => {
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                   <Link
-                    href="tel:+918149563913"
+                    href="tel:+0000000000"
                     className="hover:text-yellow-800 transition-colors"
                     aria-label="Call us"
                   >
-                    +91 82360 16165
+                    +00 00000 00000
                   </Link>
                 </li>
                 <li className="flex items-center gap-2">
@@ -158,7 +158,7 @@ const Footer = () => {
                     />
                   </svg>
                   <address className="not-italic">
-                    78 Mahaveer nagar, Indore, Madhya Pradesh
+                    0000000000, 00000, 00000
                   </address>
                 </li>
                 <li className="flex items-center gap-2">
@@ -185,8 +185,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-700">
               <p>
                 <small>
-                  © {new Date().getFullYear()} Indore Prime Tour. All rights
-                  reserved.
+                  © {new Date().getFullYear()} 0000000000. All rights reserved.
                 </small>
               </p>
               <p className="font-medium">
