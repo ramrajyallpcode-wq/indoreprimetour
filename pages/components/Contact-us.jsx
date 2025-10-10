@@ -167,7 +167,7 @@ const Contactus = () => {
                       Service Areas
                     </h4>
                     <p className="text-sm sm:text-base ">
-                      <strong> 78 Mahaveer nagar,Indore, Madhya Pradesh</strong>
+                      <strong> Indore, Madhya Pradesh</strong>
                     </p>
                   </div>
                 </div>
@@ -210,10 +210,10 @@ const Contactus = () => {
                     </h4>
                     <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
                       <a
-                        href="tel:+917312345678"
+                        href="tel:+910000000000"
                         aria-label="Call our customer service"
                       >
-                        +91 82360 16165
+                        +91 00000 00000
                       </a>
                     </p>
                   </div>
@@ -242,10 +242,10 @@ const Contactus = () => {
                     </h4>
                     <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
                       <a
-                        href="mailto:indoreprimetour@gmail.com"
+                        href="mailto:0000000000@gmail.com"
                         aria-label="Email our customer service"
                       >
-                        indoreprimetour@gmail.com
+                        0000000000@gmail.com
                       </a>
                     </p>
                   </div>
