@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { db } from '../../firebase/config';
+import { db } from '../../lib/firebase';
 import { collection, getDocs, doc, deleteDoc, updateDoc } from 'firebase/firestore';
 
 const ManageTours = () => {

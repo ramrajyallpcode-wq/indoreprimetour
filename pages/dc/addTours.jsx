@@ -1,37 +1,37 @@
-import { useState } from 'react';
-import { db } from '../../firebase/config';
-import { collection, addDoc } from 'firebase/firestore';
+import { useState } from "react";
+import { db } from "../../lib/firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const AddTourForm = () => {
   const [tourData, setTourData] = useState({
-    name: '',
-    description: '',
-    from: '',
-    to: '',
-    dateFrom: '',
-    dateTo: '',
-    placesToVisit: '',
+    name: "",
+    description: "",
+    from: "",
+    to: "",
+    dateFrom: "",
+    dateTo: "",
+    placesToVisit: "",
     numberOfDays: 0,
-    numberOfNights: 0, 
+    numberOfNights: 0,
     numberOfSeats: 0,
   });
   const [tourImage, setTourImage] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
-    if (type === 'file') {
+    if (type === "file") {
       const file = e.target.files[0];
-      if (file && file.type.startsWith('image/')) {
+      if (file && file.type.startsWith("image/")) {
         setTourImage(file);
       } else if (file) {
-        setError('Please select an image file');
+        setError("Please select an image file");
       }
     } else {
-      setTourData(prev => ({
+      setTourData((prev) => ({
         ...prev,
-        [name]: name.includes('number') ? Number(value) : value
+        [name]: name.includes("number") ? Number(value) : value,
       }));
     }
   };
@@ -39,43 +39,43 @@ const AddTourForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
       if (!tourImage) {
-        throw new Error('Please select an image for the tour');
+        throw new Error("Please select an image for the tour");
       }
 
       // Upload image first
       const formData = new FormData();
-      formData.append('image', tourImage);
+      formData.append("image", tourImage);
 
-      const uploadResponse = await fetch('/api/upload', {
-        method: 'POST',
+      const uploadResponse = await fetch("/api/upload", {
+        method: "POST",
         body: formData,
       });
 
       if (!uploadResponse.ok) {
-        throw new Error('Failed to upload image');
+        throw new Error("Failed to upload image");
       }
 
       const { imagePath } = await uploadResponse.json();
 
       // Add tour with image path
-      await addDoc(collection(db, 'tours'), {
+      await addDoc(collection(db, "tours"), {
         ...tourData,
-        imageLink: imagePath // Store the local image path
+        imageLink: imagePath, // Store the local image path
       });
 
-      alert('Tour added successfully!');
+      alert("Tour added successfully!");
       setTourData({
-        name: '',
-        description: '',
-        from: '',
-        to: '',
-        dateFrom: '',
-        dateTo: '',
-        placesToVisit: '',
+        name: "",
+        description: "",
+        from: "",
+        to: "",
+        dateFrom: "",
+        dateTo: "",
+        placesToVisit: "",
         numberOfDays: 0,
         numberOfNights: 0,
         numberOfSeats: 0,
@@ -83,10 +83,9 @@ const AddTourForm = () => {
       setTourImage(null);
       // Reset file input
       const fileInput = document.querySelector('input[type="file"]');
-      if (fileInput) fileInput.value = '';
-
+      if (fileInput) fileInput.value = "";
     } catch (error) {
-      console.error('Error adding tour:', error);
+      console.error("Error adding tour:", error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -239,18 +238,16 @@ const AddTourForm = () => {
           )}
         </div>
 
-        {error && (
-          <div className="text-red-500 text-sm">{error}</div>
-        )}
+        {error && <div className="text-red-500 text-sm">{error}</div>}
 
         <button
           type="submit"
           disabled={loading}
           className={`bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ${
-            loading ? 'opacity-50 cursor-not-allowed' : ''
+            loading ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
-          {loading ? 'Adding Tour...' : 'Add Tour'}
+          {loading ? "Adding Tour..." : "Add Tour"}
         </button>
       </form>
     </div>
