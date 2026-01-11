@@ -136,7 +136,7 @@ const Footer = () => {
                   className="hover:text-opacity-80 transition-colors"
                   aria-label="Call us"
                 >
-                  +91 82360 16165
+                  +91 82360 16165 , 9098327666
                 </Link>
               </li>
               <li className="flex items-center gap-2 justify-center lg:justify-start bg-white/5 rounded-xl py-3 px-4">

@@ -70,7 +70,7 @@ const Contactus = () => {
         <meta property="og:type" content="website" />
         <link
           rel="canonical"
-          href="https://www.bestcabrentalindore.com/contact-us"
+          href="https://www.indoreprimetour.com/contact-us"
         />
       </Head>
       <Navbar />
@@ -213,7 +213,7 @@ const Contactus = () => {
                         href="tel:+91 82360 16165"
                         aria-label="Call our customer service"
                       >
-                        +91 82360 16165
+                        +91 82360 16165 , +91 90983 27666
                       </a>
                     </p>
                   </div>

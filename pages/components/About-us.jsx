@@ -54,7 +54,7 @@ const Aboutus = () => {
         <meta property="og:type" content="website" />
         <link
           rel="canonical"
-          href="https://bestcarrentalindia.com/components/About-us"
+          href="https://indoreprimetour.com/components/About-us"
         />
       </Head>
 

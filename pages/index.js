@@ -33,8 +33,8 @@ const Index = () => {
           content="Leading car rental service in india offering wide range of vehicles. Best prices guaranteed for self-drive cars and chauffeur services across india."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.bestcarrentalindia.com" />
-        <link rel="canonical" href="https://www.bestcarrentalindia.com" />
+        <meta property="og:url" content="https://indoreprimetour.com" />
+        <link rel="canonical" href="https://indoreprimetour.com" />
       </Head>
       <Loader />
       <Navbar />
