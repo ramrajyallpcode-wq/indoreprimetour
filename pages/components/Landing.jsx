@@ -29,9 +29,8 @@ const Landing = () => {
                 car rental services in indore
               </span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 font-medium italic">
-              Book with ease, arrive with style - your reliable car rental
-              service
+            <p className="text-base sm:text-lg md:text-2xl mb-6 sm:mb-8 font-medium italic">
+              "Safar pal do pal kaa yaade jindagi bhar ki"
             </p>
 
             {/* Service Icons */}

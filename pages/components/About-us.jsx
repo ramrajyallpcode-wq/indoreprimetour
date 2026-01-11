@@ -105,7 +105,66 @@ const Aboutus = () => {
             </nav>
           </div>
         </header>
+  <article className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <figure className="relative order-2 lg:order-1 h-[360px] sm:h-[450px] lg:h-[560px] rounded-[32px] overflow-hidden shadow-2xl shadow-yellow-500/10 border border-white">
+                <Image
+                  src="/images/founder.jpeg"
+                  alt="Founder of our cab services standing beside a premium cab in Indore"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute top-6 left-6 bg-white/95 text-gray-900 px-5 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2">
+                  <span className="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                  Serving Indore • 10+ years
+                </div>
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                  <p className="text-white text-lg font-semibold">
+                    “Our drivers are the heart of every safe arrival.”
+                  </p>
+                  <p className="text-white/70 text-sm mt-1">Founder - Vishwas Kanade </p>
+                </figcaption>
+              </figure>
 
+              <div className="space-y-8 order-1 lg:order-2">
+                <div className="space-y-4">
+                
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                    Your <span className="text-yellow-500">Trusted Cab Service</span> Partner in India
+                  </h2>
+                  <div className="h-1 w-24 bg-gradient-to-r from-yellow-300 to-yellow-500 rounded-full"></div>
+                </div>
+
+                <div className="space-y-5 text-gray-700">
+                  <p className="text-base sm:text-lg md:text-xl">
+                    Welcome to our Cab Services, headquartered in <strong>Indore</strong>, where we’ve spent the last decade redefining city and outstation travel with dependable chauffeurs and immaculate vehicles.
+                  </p>
+                  <p className="text-base sm:text-lg">
+                    With <strong>10+ years of experience</strong>, we deliver hassle-free rentals, premium comfort, and courteous drivers who know Indore’s lanes as well as India’s highways.
+                  </p>
+                  <p className="text-base sm:text-lg">
+                    Our fleet spans compact sedans to spacious SUVs, all driven by professionals who undergo regular training, safety inspections, and hospitality refreshers to ensure every journey feels personal.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
+                    <p className="text-3xl font-bold text-gray-900">10+</p>
+                    <p className="text-sm uppercase tracking-wide text-gray-500">Years in service</p>
+                  </div>
+                  <div className="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
+                    <p className="text-3xl font-bold text-gray-900">5k+</p>
+                    <p className="text-sm uppercase tracking-wide text-gray-500">Trips driven safely</p>
+                  </div>
+                </div>
+
+             
+              </div>
+            </section>
+          </div>
+        </article>
         <article className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">

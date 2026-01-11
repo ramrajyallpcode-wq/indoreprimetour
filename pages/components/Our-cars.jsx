@@ -9,7 +9,67 @@ import Head from "next/head";
 import Link from "next/link";
 
 const Ourcars = () => {
+  const bookNowCars = new Set([
+    "Aura",
+    "Urbania",
+    "Toofan",
+    "Tavera",
+    "Swift (Automatic)",
+    "Swift (Manual)",
+    "Ertiga (Automatic)",
+    "Ertiga (Manual)",
+  ]);
+
   const carsList = [
+    {
+      name: "Aura",
+      image: "/images/aura.avif",
+      description: "Stylish compact sedan with premium comfort",
+      features: ["5 Seater", "Automatic", "Premium Interior"],
+    },
+    {
+      name: "Urbania",
+      image: "/images/urbania.jpg",
+      description: "Modern van ideal for city tours and business travel",
+      features: ["9 Seater", "Automatic", "Luxury Cabin"],
+    },
+    {
+      name: "Toofan",
+      image: "/images/toofan.jpg",
+      description: "Rugged utility vehicle built for group travel",
+      features: ["9 Seater", "Manual", "High Ground Clearance"],
+    },
+    {
+      name: "Tavera",
+      image: "/images/tavera.jpg",
+      description: "Reliable MPV perfect for long highway journeys",
+      features: ["7 Seater", "Manual", "Fuel Efficient"],
+    },
+
+    {
+      name: "Swift (Automatic)",
+      image: "/images/swift.png",
+      description: "Sporty and efficient hatchback",
+      features: ["5 Seater", "Automatic", "Good Mileage"],
+    },
+    {
+      name: "Swift (Manual)",
+      image: "/images/swift.png",
+      description: "Sporty and efficient hatchback",
+      features: ["5 Seater", "Manual", "Good Mileage"],
+    },
+    {
+      name: "Ertiga (Automatic)",
+      image: "/images/ertiga.png",
+      description: "Spacious family MPV",
+      features: ["7 Seater", "Automatic", "Family Car"],
+    },
+    {
+      name: "Ertiga (Manual)",
+      image: "/images/ertiga.png",
+      description: "Spacious family MPV",
+      features: ["7 Seater", "Manual", "Family Car"],
+    },
     {
       name: "Mini Cooper",
       image: "/images/mini-cooper.png",
@@ -41,18 +101,6 @@ const Ourcars = () => {
       features: ["5 Seater", "Manual", "Good Mileage"],
     },
     {
-      name: "Swift (Automatic)",
-      image: "/images/swift.png",
-      description: "Sporty and efficient hatchback",
-      features: ["5 Seater", "Automatic", "Good Mileage"],
-    },
-    {
-      name: "Swift (Manual)",
-      image: "/images/swift.png",
-      description: "Sporty and efficient hatchback",
-      features: ["5 Seater", "Manual", "Good Mileage"],
-    },
-    {
       name: "i10 (Automatic)",
       image: "/images/i10.png",
       description: "Compact and efficient",
@@ -76,18 +124,7 @@ const Ourcars = () => {
       description: "Premium hatchback",
       features: ["5 Seater", "Manual", "Good Mileage"],
     },
-    {
-      name: "Ertiga (Automatic)",
-      image: "/images/ertiga.png",
-      description: "Spacious family MPV",
-      features: ["7 Seater", "Automatic", "Family Car"],
-    },
-    {
-      name: "Ertiga (Manual)",
-      image: "/images/ertiga.png",
-      description: "Spacious family MPV",
-      features: ["7 Seater", "Manual", "Family Car"],
-    },
+
     {
       name: "Thar (Automatic)",
       image: "/images/tharauto.png",
@@ -201,8 +238,19 @@ const Ourcars = () => {
                       fill
                       className="object-cover scale-75"
                     />
-                    <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-lg">
-                      Book Now
+                    <div
+                      className={`absolute top-4 right-4 px-3 py-1.5 rounded-full text-sm font-bold shadow-lg text-white ${
+                        bookNowCars.has(car.name)
+                          ? "bg-green-500"
+                          : "bg-yellow-500"
+                      }`}
+                      aria-label={
+                        bookNowCars.has(car.name)
+                          ? `Book ${car.name} now`
+                          : `${car.name} coming soon`
+                      }
+                    >
+                      {bookNowCars.has(car.name) ? "Book Now" : "Coming Soon"}
                     </div>
                   </div>
                   <div className="p-6 sm:p-7">
