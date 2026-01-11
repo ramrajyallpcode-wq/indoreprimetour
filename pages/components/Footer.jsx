@@ -32,7 +32,7 @@ const Footer = () => {
           className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-purple-300/30 transform hover:scale-110"
           title="Follow us on Instagram"
           aria-label="Follow us on Instagram"
-          href="https://www.instagram.com/0000000000"
+          href="https://www.instagram.com/indoreprimetour"
         >
           <svg
             stroke="currentColor"
@@ -104,7 +104,7 @@ const Footer = () => {
             <div className="w-full h-px mt-8 mb-5 lg:w-px lg:m-0 lg:h-6 bg-white/20" />
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-white/80 text-center lg:text-left w-full">
-              <li className="flex items-center gap-2 justify-center lg:justify-start bg-white/5 rounded-xl py-3 px-4">
+              <li className="flex items-center  justify-center lg:justify-start bg-white/5 rounded-xl ">
                 <svg
                   className="w-4 h-4"
                   fill="currentColor"
@@ -115,11 +115,11 @@ const Footer = () => {
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
                 <Link
-                  href="mailto:"
+                  href="mailto:indoreprimetours@gmail.com"
                   className="hover:text-opacity-80 transition-colors"
                   aria-label="Email us"
                 >
-                  p@gmail.com
+               indoreprimetours@gmail.com
                 </Link>
               </li>
               <li className="flex items-center gap-2 justify-center lg:justify-start bg-white/5 rounded-xl py-3 px-4">

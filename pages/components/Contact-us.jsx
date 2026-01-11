@@ -242,10 +242,10 @@ const Contactus = () => {
                     </h4>
                     <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
                       <a
-                        href="mailto:0000000000@gmail.com"
+                        href="mailto:indoreprimetours@gmail.com"
                         aria-label="Email our customer service"
                       >
-                        0000000000@gmail.com
+                        indoreprimetours@gmail.com
                       </a>
                     </p>
                   </div>
