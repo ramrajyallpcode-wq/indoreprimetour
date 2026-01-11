@@ -210,10 +210,10 @@ const Contactus = () => {
                     </h4>
                     <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
                       <a
-                        href="tel:+910000000000"
+                        href="tel:+91 82360 16165"
                         aria-label="Call our customer service"
                       >
-                 +91 82360 16165
+                        +91 82360 16165
                       </a>
                     </p>
                   </div>

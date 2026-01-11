@@ -12,6 +12,10 @@ import "@splidejs/react-splide/css";
 
 const Cars = () => {
   const [carPrices, setCarPrices] = useState({
+    aura: 0,
+    urbania: 0,
+    toofan: 0,
+    tavera: 0,
     miniCooper: 20000,
     fortunerAuto: 8000,
     endeavourAuto: 7000,
@@ -30,6 +34,17 @@ const Cars = () => {
     audiA4: 12000,
   });
   const [loading, setLoading] = useState(true);
+
+  const bookNowCars = new Set([
+    "Aura",
+    "Urbania",
+    "Toofan",
+    "Tavera",
+    "Swift (Automatic)",
+    "Swift (Manual)",
+    "Ertiga (Automatic)",
+    "Ertiga (Manual)",
+  ]);
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -51,6 +66,54 @@ const Cars = () => {
   }, []);
 
   const carData = [
+    {
+      name: "Aura",
+      priceKey: "aura",
+      image: "/images/aura.avif",
+      features: ["5 Seater", "Automatic", "Premium Interior"],
+    },
+    {
+      name: "Urbania",
+      priceKey: "urbania",
+      image: "/images/urbania.jpg",
+      features: ["9 Seater", "Automatic", "Luxury Cabin"],
+    },
+    {
+      name: "Toofan",
+      priceKey: "toofan",
+      image: "/images/toofan.jpg",
+      features: ["9 Seater", "Manual", "High Ground Clearance"],
+    },
+    {
+      name: "Tavera",
+      priceKey: "tavera",
+      image: "/images/tavera.jpg",
+      features: ["7 Seater", "Manual", "Fuel Efficient"],
+    },
+    {
+      name: "Swift (Automatic)",
+      priceKey: "swiftAuto",
+      image: "/images/swift.png",
+      features: ["5 Seater", "Automatic", "Good Mileage"],
+    },
+    {
+      name: "Swift (Manual)",
+      priceKey: "swiftManual",
+      image: "/images/swift.png",
+      features: ["5 Seater", "Manual", "Good Mileage"],
+    },
+    {
+      name: "Ertiga (Automatic)",
+      priceKey: "ertigaAuto",
+      image: "/images/ertiga.png",
+      features: ["7 Seater", "Automatic", "Family Car"],
+    },
+    {
+      name: "Ertiga (Manual)",
+      priceKey: "ertigaManual",
+      image: "/images/ertiga.png",
+      features: ["7 Seater", "Manual", "Family Car"],
+    },
     {
       name: "Mini Cooper",
       priceKey: "miniCooper",
@@ -82,18 +145,6 @@ const Cars = () => {
       features: ["5 Seater", "Manual", "Good Mileage"],
     },
     {
-      name: "Swift (Automatic)",
-      priceKey: "swiftAuto",
-      image: "/images/swift.png",
-      features: ["5 Seater", "Automatic", "Good Mileage"],
-    },
-    {
-      name: "Swift (Manual)",
-      priceKey: "swiftManual",
-      image: "/images/swift.png",
-      features: ["5 Seater", "Manual", "Good Mileage"],
-    },
-    {
       name: "i10 (Automatic)",
       priceKey: "i10Auto",
       image: "/images/i10.png",
@@ -116,18 +167,6 @@ const Cars = () => {
       priceKey: "i20Manual",
       image: "/images/i20m.png",
       features: ["5 Seater", "Manual", "Good Mileage"],
-    },
-    {
-      name: "Ertiga (Automatic)",
-      priceKey: "ertigaAuto",
-      image: "/images/ertiga.png",
-      features: ["7 Seater", "Automatic", "Family Car"],
-    },
-    {
-      name: "Ertiga (Manual)",
-      priceKey: "ertigaManual",
-      image: "/images/ertiga.png",
-      features: ["7 Seater", "Manual", "Family Car"],
     },
     {
       name: "Thar (Automatic)",
@@ -247,6 +286,20 @@ const Cars = () => {
                             className="scale-75"
                             priority={index < 3}
                           />
+                          <div
+                            className={`absolute top-4 right-4 px-3 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-lg text-white ${
+                              bookNowCars.has(car.name)
+                                ? "bg-green-500"
+                                : "bg-yellow-500"
+                            }`}
+                            aria-label={
+                              bookNowCars.has(car.name)
+                                ? `Book ${car.name} now`
+                                : `${car.name} coming soon`
+                            }
+                          >
+                            {bookNowCars.has(car.name) ? "Book Now" : "Coming Soon"}
+                          </div>
                         </figure>
                         <div className="p-4 sm:p-6 flex flex-col flex-grow">
                           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
